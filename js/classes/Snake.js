@@ -21,15 +21,24 @@ class Snake extends Queue {
    * @param {number} toY New coordinates for the head
    * @returns {object}
    */
-  walk(toX, toY) {
+  walk(coordinates) {
     const size = this.size()
     const { x, y } = this.getByIndex(i - 1)
     for (let i = (size -1); i > 0; i--) {
       this.getByIndex(i).x = this.getByIndex(i - 1).x
       this.getByIndex(i).y = this.getByIndex(i - 1).y
     }
-    this.items.x = toX
-    this.items.y = toY
+    this.head = coordinates
     return { x, y }
+  }
+
+  get head() {
+    const { x, y } = this.items
+    return { x, y }
+  }
+
+  set head(coordinates) {
+    this.items.x = coordinates.x
+    this.items.y = coordinates.y
   }
 }
