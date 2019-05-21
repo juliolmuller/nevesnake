@@ -2,13 +2,34 @@
 class Snake extends Queue {
 
   /**
-   * @param {number} initialSize Initial size of the snake.
+   * @param {number} initialPosX Initial position in X axis
+   * @param {number} initialPosY Initial position in Y axis
    */
   constructor(initialPosX, initialPosY) {
     super()
-    this.insert({
-      x: initialPosX,
-      y: initialPosY
-    })
+    if (initialPosX && initialPosY) {
+      this.insert({
+        x: initialPosX,
+        y: initialPosY
+      })
+    }
+  }
+
+  /**
+   * Updates the position of the entire body of the snake, returning its last tail coordinates.
+   * @param {number} toX New coordinates for the head
+   * @param {number} toY New coordinates for the head
+   * @returns {object}
+   */
+  walk(toX, toY) {
+    const size = this.size()
+    const { x, y } = this.getByIndex(i - 1)
+    for (let i = (size -1); i > 0; i--) {
+      this.getByIndex(i).x = this.getByIndex(i - 1).x
+      this.getByIndex(i).y = this.getByIndex(i - 1).y
+    }
+    this.items.x = toX
+    this.items.y = toY
+    return { x, y }
   }
 }
