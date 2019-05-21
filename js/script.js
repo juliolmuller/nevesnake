@@ -23,7 +23,7 @@ const nevesAudio = new Audio('./audio/neves.mp3')
 const morreuAudio = new Audio('./audio/morreu.mp3')
 
 // Instanciar estrutura de cobra
-//const cobra = new Snake(9 * bloco, 10 * bloco)
+// const cobra = new Snake(9 * bloco, 10 * bloco)
 const cobra = []
 cobra.push({
   x: 9 * bloco,
@@ -42,25 +42,27 @@ var score = 0
 // Configurar eventos de controle da cobra
 var direciao = ''
 document.addEventListener('keydown', event => {
-  if (event.keyCode == 37 && direciao != 'DIREITA') {
+  if (event.keyCode == 37 && direciao != 'DIREITA' && direciao != 'ESQUERDA') {
     direciao = 'ESQUERDA'
     esquerdaAudio.play()
-  } else if(event.keyCode == 38 && direciao != "BAIXO") {
+  } else if(event.keyCode == 38 && direciao != 'BAIXO' && direciao != 'CIMA') {
     direciao = 'CIMA'
     cimaAudio.play()
-  } else if(event.keyCode == 39 && direciao != "ESQUERDA") {
+  } else if(event.keyCode == 39 && direciao != 'ESQUERDA' && direciao != 'DIREITA') {
     direciao = 'DIREITA'
     direitaAudio.play()
-  } else if(event.keyCode == 40 && direciao != "CIMA") {
+  } else if(event.keyCode == 40 && direciao != 'CIMA' && direciao != 'BAIXO') {
     direciao = 'BAIXO'
     baixoAudio.play()
   }
 })
 
 // Função para verificar evento de colisão
-function colisao(cabeca, array) {
-  for (let i = 0; i < array.length; i++) {
-    if (cabeca.x == array[i].x && cabeca.y == array[i].y)
+function colisao(cabeca) {
+  // if (cobraX < bloco || cobraX > 17 * bloco || cobraY < 3 * bloco || cobraY > 17 * bloco)
+  //   return true
+  for (let i = 0; i < cobra.length; i++) {
+    if (cabeca.x == cobra[i].x && cabeca.y == cobra[i].y)
       return true
   }
   return false
@@ -121,8 +123,9 @@ function desenha() {
     y: cobraY
   }
 
-  // Fim de jogo
-  if (cobraX < bloco || cobraX > 17 * bloco || cobraY < 3 * bloco || cobraY > 17 * bloco || colisao(novaCabeca, cobra)) {
+  // Verificar se houve colisão
+  // if (colisao(novaCabeca)) {
+  if (cobraX < bloco || cobraX > 17 * bloco || cobraY < 3 * bloco || cobraY > 17 * bloco || colisao(novaCabeca)) {
     clearInterval(jogo)
     morreuAudio.play()
   }
