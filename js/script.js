@@ -24,9 +24,9 @@ const morreuAudio = new Audio('./audio/morreu.mp3')
 
 // Instanciar estrutura de cobra
 //const cobra = new Snake(9 * bloco, 10 * bloco)
-const cobra = new Array()
+const cobra = []
 cobra.push({
-  x: 8 * bloco,
+  x: 9 * bloco,
   y: 10 * bloco
 })
 
