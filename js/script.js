@@ -3,12 +3,15 @@
 const cvs = document.getElementById('the-snake')
 const ctx = cvs.getContext('2d')
 
-// Definir tamanho do bloco (pixels)
-const bloco = 32
-
 // Configurar imagem de fundo
-const fundo = new Image();
+const fundo = new Image()
 fundo.src = './img/fundo.png'
+
+// Definir tamanho do bloco (pixels)
+const TAM_BLOCO = 32
+
+// Definir variável para acumular pontuação
+var score = 0
 
 // Configurar imagem do Neves
 const nevesImg = new Image()
@@ -23,21 +26,15 @@ const nevesAudio = new Audio('./audio/neves.mp3')
 const morreuAudio = new Audio('./audio/morreu.mp3')
 
 // Instanciar estrutura de cobra
-// const cobra = new Snake(9 * bloco, 10 * bloco)
+// const cobra = new Snake(9 * TAM_BLOCO, 10 * TAM_BLOCO)
 const cobra = []
 cobra.push({
-  x: 9 * bloco,
-  y: 10 * bloco
+  x: 9 * TAM_BLOCO,
+  y: 10 * TAM_BLOCO
 })
 
 // Configurar objeto comida
-var neves = {
-  x: Math.floor(Math.random() * 17 + 1) * bloco,
-  y: Math.floor(Math.random() * 15 + 3) * bloco
-}
-
-// Definir variável para acumular pontuação
-var score = 0
+const neves = new Food(TAM_BLOCO)
 
 // Configurar eventos de controle da cobra
 var direcao = undefined
@@ -77,9 +74,9 @@ function desenha() {
   // Renderizar cobra
   for (let i = 0; i < cobra.length; i++) {
     ctx.fillStyle = i == 0 ? 'green' : 'white'
-    ctx.fillRect(cobra[i].x, cobra[i].y, bloco, bloco)
+    ctx.fillRect(cobra[i].x, cobra[i].y, TAM_BLOCO, TAM_BLOCO)
     ctx.strokeStyle = 'red'
-    ctx.strokeRect(cobra[i].x, cobra[i].y, bloco, bloco)
+    ctx.strokeRect(cobra[i].x, cobra[i].y, TAM_BLOCO, TAM_BLOCO)
   }
 
   // Renderizar comida
@@ -92,16 +89,16 @@ function desenha() {
   // Identificar direção da cobra
   switch (direcao) {
     case Direction.UP:
-      cobraY -= bloco
+      cobraY -= TAM_BLOCO
       break
     case Direction.DOWN:
-      cobraY += bloco
+      cobraY += TAM_BLOCO
       break
     case Direction.LEFT:
-      cobraX -= bloco
+      cobraX -= TAM_BLOCO
       break
     case Direction.RIGHT:
-      cobraX += bloco
+      cobraX += TAM_BLOCO
       break
   }
 
@@ -109,10 +106,7 @@ function desenha() {
   if (cobraX == neves.x && cobraY == neves.y) {
     nevesAudio.play()
     score++
-    neves = {
-      x: Math.floor(Math.random() * 17 + 1) * bloco,
-      y: Math.floor(Math.random() * 15 + 3) * bloco
-    }
+    neves.regenerate()
   } else {
     // Remove a cauda
     cobra.pop()
@@ -125,7 +119,7 @@ function desenha() {
 
   // Verificar se houve colisão
   // if (colisao(novaCabeca)) {
-  if (cobraX < bloco || cobraX > 17 * bloco || cobraY < 3 * bloco || cobraY > 17 * bloco || colisao(novaCabeca)) {
+  if (cobraX < TAM_BLOCO || cobraX > 17 * TAM_BLOCO || cobraY < 3 * TAM_BLOCO || cobraY > 17 * TAM_BLOCO || colisao(novaCabeca)) {
     clearInterval(jogo)
     morreuAudio.play()
   }
@@ -136,7 +130,7 @@ function desenha() {
   // Renderizar placar
   ctx.fillStyle = 'white'
   ctx.font = '45px Changa one'
-  ctx.fillText(score, 2 * bloco, 1.6 * bloco)
+  ctx.fillText(score, 2 * TAM_BLOCO, 1.6 * TAM_BLOCO)
 }
 
 // Iniciar partida e definir velocidade da cobra (em milissegundos)
