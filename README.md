@@ -12,7 +12,7 @@
 
 A simple **Snake** game for web browsers, implementing a kind-of *struct* data structure with nasted JS objects.
 
-[Play FreecellJS Solitaire Online!](https://snake.jjsolutions.net/)
+[Play Neves JS Online!](https://snake.jjsolutions.net/)
 
 ![Neves JS - The Snake Game Screencap](img/game-overview.jpg)
 
