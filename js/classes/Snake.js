@@ -3,24 +3,22 @@
  * Class to build a snake for the game.
  * @class
  * @author Julio Muller & Aurelio Matsunaga
- * @version 1.2.0
+ * @version 1.2.1
  */
 class Snake extends Queue {
 
   /**
    * Instances an object of snake, receiving its initial head coordinates.
    * @constructor
-   * @param {number} blockSize Holds the size of each block of the game.
    * @param {number} initialPosX Initial position in X axis.
    * @param {number} initialPosY Initial position in Y axis.
    */
-  constructor(blockSize, initialPosX, initialPosY) {
+  constructor(initialPosX, initialPosY) {
     super()
-    this.blockSize = blockSize
     if (initialPosX && initialPosY) {
       this.insert({
-        x: initialPosX * this.blockSize,
-        y: initialPosY * this.blockSize
+        x: initialPosX,
+        y: initialPosY
       })
     }
   }
@@ -37,18 +35,18 @@ class Snake extends Queue {
       this.getByIndex(i).x = this.getByIndex(i - 1).x
       this.getByIndex(i).y = this.getByIndex(i - 1).y
     }
-    switch (direction) {
+    switch (direction, blockSize) {
       case Direction.UP:
-        this.items.y -= this.blockSize
+        this.items.y -= blockSize
         break
       case Direction.DOWN:
-        this.items.y += this.blockSize
+        this.items.y += blockSize
         break
       case Direction.LEFT:
-        this.items.x -= this.blockSize
+        this.items.x -= blockSize
         break
       case Direction.RIGHT:
-        this.items.x += this.blockSize
+        this.items.x += blockSize
         break
     }
     return { x, y }
