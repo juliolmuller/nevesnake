@@ -19,8 +19,8 @@ class Snake extends Queue {
     this.blockSize = blockSize
     if (initialPosX && initialPosY) {
       this.insert({
-        x: initialPosX,
-        y: initialPosY
+        x: initialPosX * this.blockSize,
+        y: initialPosY * this.blockSize
       })
     }
   }
