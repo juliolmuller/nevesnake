@@ -13,17 +13,15 @@ const TAM_BLOCO = 32
 // Definir variável para acumular pontuação
 var score = 0
 
-// Configurar imagem do Neves
-const nevesImg = new Image()
-nevesImg.src = './img/neves.png'
-
 // Configurar sons
 const cimaAudio = new Audio('./audio/cima.mp3')
 const baixoAudio = new Audio('./audio/baixo.mp3')
 const direitaAudio = new Audio('./audio/direita.mp3')
 const esquerdaAudio = new Audio('./audio/esquerda.mp3')
-const nevesAudio = new Audio('./audio/neves.mp3')
+const maisNevesAudio = new Audio('./audio/mais-neves.mp3')
+const menosNevesAudio = new Audio('./audio/menos-neves.mp3')
 const morreuAudio = new Audio('./audio/morreu.mp3')
+const sumiuAudio = new Audio('./audio/sumiu.mp3')
 
 // Configurar objeto comida
 const neves = new Food(TAM_BLOCO)
@@ -76,7 +74,7 @@ function renderizar() {
   ctx.fillText(score, 2 * TAM_BLOCO, 1.6 * TAM_BLOCO)
 
   // Renderizar comida
-  ctx.drawImage(nevesImg, neves.x, neves.y)
+  ctx.drawImage(neves.img, neves.x, neves.y)
 
   // Renderizar cobra
   for (let i = 0; i < cobra.size(); i++) {
@@ -90,15 +88,22 @@ function renderizar() {
   let proxPasso = cobra.nextStep(direcao, TAM_BLOCO)
 
   // Verificar se haverá colisão
-  if (colisao(proxPasso)) {
-    clearInterval(jogo)
-    morreuAudio.play()
-  }
+  if (colisao(proxPasso))
+    terminarJogo(morreuAudio)
 
   // Capturar comida
   if (proxPasso.x == neves.x && proxPasso.y == neves.y) {
-    cobra.insert(cobra.walk(direcao, TAM_BLOCO))
-    nevesAudio.play()
+    if (neves.grow) {
+      cobra.insert(cobra.walk(direcao, TAM_BLOCO))
+      maisNevesAudio.play()
+    } else {
+      cobra.walk(direcao, TAM_BLOCO)
+      cobra.remove()
+      if (cobra.size())
+        menosNevesAudio.play()
+      else
+        terminarJogo(sumiuAudio)
+    }
     score++
     neves.regenerate()
 
@@ -108,5 +113,11 @@ function renderizar() {
   }
 }
 
+// Função para terminar jogo
+function terminarJogo(som) {
+  som.play()
+  clearInterval(jogo)
+}
+
 // Iniciar partida e definir velocidade da cobra (em milissegundos)
-let jogo = setInterval(renderizar, 150)
+let jogo = setInterval(renderizar, 120)
