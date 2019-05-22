@@ -1,13 +1,27 @@
 
+/**
+ * Class to build a data sctructure of queue.
+ * @class
+ * @author Julio Muller & Aurelio Matsunaga
+ * @version 1.2.0
+ */
 class Queue {
 
-  constructor() {
+  /**
+   * Instances an object structured as queue.
+   * @constructor
+   * @param {Iterable} items List of iterable items to be added to the queue.
+   */
+  constructor(...items) {
     this.items = undefined
+    items.forEach(item => {
+      this.insert(item)
+    })
   }
 
   /**
-   * Adds an object to the stack.
-   * @param {object} item Object to add to the end of the queue.
+   * Adds an object to the end of the queue.
+   * @param {object} item Object to be added to the structure.
    */
   insert(item) {
     item._next = undefined
@@ -22,7 +36,7 @@ class Queue {
   }
 
   /**
-   * Removes the first object from the queue.
+   * Removes the first/oldest object from the queue, returning it.
    * @returns {object}
    */
   remove() {
@@ -48,7 +62,7 @@ class Queue {
   }
 
   /**
-   * Returns the value in the (index + 1)th position in the structure.
+   * Returns the value in the (index+1)th position in the structure.
    * @param {number} index Index of the item in the structure (starting with 0)
    * @returns {object}
    */

@@ -40,19 +40,19 @@ var neves = {
 var score = 0
 
 // Configurar eventos de controle da cobra
-var direciao = ''
+var direcao = undefined
 document.addEventListener('keydown', event => {
-  if (event.keyCode == 37 && direciao != 'DIREITA' && direciao != 'ESQUERDA') {
-    direciao = 'ESQUERDA'
+  if (event.keyCode == 37 && direcao != Direction.RIGHT && direcao != Direction.LEFT) {
+    direcao = Direction.LEFT
     esquerdaAudio.play()
-  } else if(event.keyCode == 38 && direciao != 'BAIXO' && direciao != 'CIMA') {
-    direciao = 'CIMA'
+  } else if(event.keyCode == 38 && direcao != Direction.DOWN && direcao != Direction.UP) {
+    direcao = Direction.UP
     cimaAudio.play()
-  } else if(event.keyCode == 39 && direciao != 'ESQUERDA' && direciao != 'DIREITA') {
-    direciao = 'DIREITA'
+  } else if(event.keyCode == 39 && direcao != Direction.LEFT && direcao != Direction.RIGHT) {
+    direcao = Direction.RIGHT
     direitaAudio.play()
-  } else if(event.keyCode == 40 && direciao != 'CIMA' && direciao != 'BAIXO') {
-    direciao = 'BAIXO'
+  } else if(event.keyCode == 40 && direcao != Direction.UP && direcao != Direction.DOWN) {
+    direcao = Direction.DOWN
     baixoAudio.play()
   }
 })
@@ -90,18 +90,18 @@ function desenha() {
   let cobraY = cobra[0].y
 
   // Identificar direção da cobra
-  switch (direciao) {
-    case 'ESQUERDA':
-      cobraX -= bloco
-      break
-    case 'CIMA':
+  switch (direcao) {
+    case Direction.UP:
       cobraY -= bloco
       break
-    case 'DIREITA':
-      cobraX += bloco
-      break
-    case 'BAIXO':
+    case Direction.DOWN:
       cobraY += bloco
+      break
+    case Direction.LEFT:
+      cobraX -= bloco
+      break
+    case Direction.RIGHT:
+      cobraX += bloco
       break
   }
 
