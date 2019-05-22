@@ -3,7 +3,7 @@
  * Class to build a snake for the game.
  * @class
  * @author Julio Muller & Aurelio Matsunaga
- * @version 1.2.1
+ * @version 1.2.2
  */
 class Snake extends Queue {
 
@@ -24,31 +24,47 @@ class Snake extends Queue {
   }
 
   /**
+   * Returns the coordinates of the next step the snake is heading to, based on a direction.
+   * @returns {object}
+   * @param {Direction} direction Indicates the direction the snake's head is going to.
+   * @param {number} blockSize Indicates the size of each block and how much the snake walks on each step.
+   */
+  nextStep(direction, blockSize) {
+    let x = this.items.x
+    let y = this.items.y
+    switch (direction) {
+      case Direction.UP:
+        y -= blockSize
+        break
+      case Direction.DOWN:
+        y += blockSize
+        break
+      case Direction.LEFT:
+        x -= blockSize
+        break
+      case Direction.RIGHT:
+        x += blockSize
+        break
+    }
+    return { x, y }
+  }
+
+  /**
    * Updates the position of the entire body of the snake, based on a direction and returning its last tail coordinates.
    * @returns {object}
    * @param {Direction} direction Indicates the direction the snake's head is going to.
+   * @param {number} blockSize Indicates the size of each block and how much the snake walks on each step.
    */
-  walk(direction) {
+  walk(direction, blockSize = 1) {
     const size = this.size()
     const { x, y } = this.getByIndex(size - 1)
     for (let i = (size -1); i > 0; i--) {
       this.getByIndex(i).x = this.getByIndex(i - 1).x
       this.getByIndex(i).y = this.getByIndex(i - 1).y
     }
-    switch (direction, blockSize) {
-      case Direction.UP:
-        this.items.y -= blockSize
-        break
-      case Direction.DOWN:
-        this.items.y += blockSize
-        break
-      case Direction.LEFT:
-        this.items.x -= blockSize
-        break
-      case Direction.RIGHT:
-        this.items.x += blockSize
-        break
-    }
+    const head = this.nextStep(direction, blockSize)
+    this.items.x = head.x
+    this.items.y = head.y
     return { x, y }
   }
 
