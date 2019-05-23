@@ -3,7 +3,7 @@
  * Class to build a snake for the game.
  * @class
  * @author Julio Muller & Aurelio Matsunaga
- * @version 1.2.2
+ * @version 1.2.3
  */
 class Snake extends Queue {
 
@@ -30,8 +30,7 @@ class Snake extends Queue {
    * @param {number} blockSize Indicates the size of each block and how much the snake walks on each step.
    */
   nextStep(direction, blockSize) {
-    let x = this.items.x
-    let y = this.items.y
+    let { x, y } = this.items
     switch (direction) {
       case Direction.UP:
         y -= blockSize

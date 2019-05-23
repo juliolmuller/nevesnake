@@ -5,7 +5,7 @@
 - **Modified & adapted by:** [Aurelio Matsunaga](https://github.com/aureliomatsunaga) & [Julio L. Muller](https://github.com/juliolmuller)
 - **Released on:** May 22, 2019
 - **Updated on:** May 22, 2019
-- **Latest version:** 1.1.0
+- **Latest version:** 1.1.1
 - **License:** MIT
 
 ## Overview

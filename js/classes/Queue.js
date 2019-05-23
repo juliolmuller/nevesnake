@@ -3,14 +3,14 @@
  * Class to build a data sctructure of queue.
  * @class
  * @author Julio Muller & Aurelio Matsunaga
- * @version 1.2.0
+ * @version 1.2.1
  */
 class Queue {
 
   /**
    * Instances an object structured as queue.
    * @constructor
-   * @param {Iterable} items List of iterable items to be added to the queue.
+   * @param {object} items List of iterable items to be added to the queue.
    */
   constructor(...items) {
     this.items = undefined
@@ -40,9 +40,10 @@ class Queue {
    * @returns {object}
    */
   remove() {
-    const { x, y } = this.items
+    const aux = this.items
     this.items = this.items._next
-    return { x, y }
+    delete aux._next
+    return aux
   }
 
   /**
