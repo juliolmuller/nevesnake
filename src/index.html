@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>
+      Neves JS - The Snake We Fear
+    </title>
+    <link rel="shortcut icon" href="img/favicon.ico">
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+      }
+      canvas {
+        display: block;
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        margin: auto;
+      }
+    </style>
+  </head>
+  <body>
+    <canvas id ="the-snake" width="608" height="608"></canvas>
+    <script src="./js/enums/Direction.js"></script>
+    <script src="./js/classes/Queue.js"></script>
+    <script src="./js/classes/Snake.js"></script>
+    <script src="./js/classes/Food.js"></script>
+    <script src="./js/script.js"></script>
+  </body>
+</html>

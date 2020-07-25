@@ -1,0 +1,50 @@
+{
+  "name": "nevesnake",
+  "version": "1.2.0",
+  "description": "Application developed as part of the study of Data Structures, more specifically the stack (first in, first out).",
+  "license": "MIT",
+  "homepage": "https://juliolmuller.github.io/nevesnake",
+  "authors": [
+    {
+      "name": "Aurelio S. Matsunaga",
+      "homepage": "https://github.com/aureliomatsunaga"
+    },
+    {
+      "name": "Julio L. Muller",
+      "homepage": "https://github.com/juliolmuller"
+    }
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/juliolmuller/nevesnake.git"
+  },
+  "bugs": {
+    "url": "https://github.com/juliolmuller/nevesnake/issues"
+  },
+  "scripts": {
+    "serve": "parcel src/index.html -d docs/",
+    "start": "parcel serve src/index.html -d docs/",
+    "watch": "parcel watch src/index.html -d docs/",
+    "build": "parcel build src/index.html -d docs/ --public-url ./"
+  },
+  "devDependencies": {
+    "@lacussoft/eslint-config-standard": "^1.0.4",
+    "eslint": "^6.8.0",
+    "parcel-bundler": "^1.12.4"
+  },
+  "eslintConfig": {
+    "root": true,
+    "env": {
+      "browser": true,
+      "node": true
+    },
+    "extends": [
+      "@lacussoft/standard"
+    ],
+    "parserOptions": {
+      "sourceType": "module",
+      "ecmaVersion": 2018
+    },
+    "rules": {}
+  }
+}
