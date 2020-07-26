@@ -1,3 +1,4 @@
 .cache/
-*.log
+.vscode/
 node_modules/
+*.log
