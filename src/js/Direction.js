@@ -3,11 +3,11 @@
  * Enumeration to limit the directions the snake can head to.
  * @enum
  * @author Julio Muller & Aurelio Matsunaga
- * @version 1.0.0
+ * @version 1.1.0
  */
-const Direction = {
-  'UP': 'UP',
-  'DOWN': 'DOWN',
-  'LEFT': 'LEFT',
-  'RIGHT': 'RIGHT'
+export default {
+  RIGHT: 'RIGHT',
+  LEFT: 'LEFT',
+  DOWN: 'DOWN',
+  UP: 'UP',
 }
