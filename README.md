@@ -4,8 +4,8 @@
 - **Originally developed by:** [Code Explained](https://github.com/CodeExplainedRepo/Snake-JavaScript)
 - **Modified & adapted by:** [Aurelio Matsunaga](https://github.com/aureliomatsunaga) & [Julio L. Muller](https://github.com/juliolmuller)
 - **Released on:** May 22, 2019
-- **Updated on:** May 22, 2019
-- **Latest version:** 1.1.1
+- **Updated on:** Jul 25, 2020
+- **Latest version:** 1.2.0
 - **License:** MIT
 
 ## Overview
@@ -16,7 +16,7 @@ A simple **Snake** game for web browsers, implementing a kind-of *struct* data s
 
 ![Neves JS - The Snake Game Screencap](img/game-overview.jpg)
 
-There are 2 types of food. The **BLUE** one increases the snake size, as tipically, and the **RED** one remove one block of the snake's body. However both foods scores +1 always.
+There are 2 types of food. The **BLUE** one increases the snake size, as typically, and the **RED** one remove one block of the snake's body. However both foods scores +1 always.
 
 ## Game Features
 
