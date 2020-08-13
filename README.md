@@ -16,7 +16,7 @@ A simple Snake game developed in HTML5 Canvas and JavaScript, in order to demons
 
 There are 2 types of food: The **BLUE** one increases the snake size, adding a block to the end of its body, and the **RED** one removes its very first  block. Both foods, however, always scores +1.
 
-[Check out the application running!](https://snake.jjsolutions.net/)
+[Check out the application running!](https://juliolmuller.github.io/nevesnake/)
 
 ## :trophy: Lessons Learned
 
