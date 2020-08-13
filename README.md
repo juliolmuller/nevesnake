@@ -10,7 +10,7 @@
 - **Latest version:** 1.2.0
 - **License:** MIT
 
-![Neves Snake Game screenshot](img/game-overview.jpg)
+![Neves Snake Game screenshot](./src/img/game-overview.jpg)
 
 A simple Snake game developed in HTML5 Canvas and JavaScript, in order to demonstrate a custom **queue** structure using JavaScript, besides having some fun. The process was initially proposed as a college assignment, but stll maintained by me, with rare updates.
 
