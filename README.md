@@ -12,13 +12,13 @@
 <p align="center">
   <img src="https://img.shields.io/static/v1?labelColor=000000&color=008000&label=created%20at&message=May%202019" alt="Creation Date" />
 
-  <img src="https://img.shields.io/github/last-commit/juliolmuller/jcalc?label=updated%20at&labelColor=000000&color=008000" alt="Update Date" />
+  <img src="https://img.shields.io/github/last-commit/juliolmuller/nevesnake?label=updated%20at&labelColor=000000&color=008000" alt="Update Date" />
 
-  <img src="https://img.shields.io/github/v/tag/juliolmuller/jcalc?label=latest%20version&labelColor=000000&color=008000" alt="Latest Version" />
+  <img src="https://img.shields.io/github/v/tag/juliolmuller/nevesnake?label=latest%20version&labelColor=000000&color=008000" alt="Latest Version" />
 
   <img src="https://img.shields.io/static/v1?labelColor=000000&color=008000&label=PRs&message=welcome" alt="Pull Requests Welcome" />
 
-  <img src="https://img.shields.io/github/license/juliolmuller/jcalc?labelColor=000000&color=008000" alt="Project License" />
+  <img src="https://img.shields.io/github/license/juliolmuller/nevesnake?labelColor=000000&color=008000" alt="Project License" />
 </p>
 
 ![Neves Snake Game screenshot](./src/assets/images/app-overview.jpg)
