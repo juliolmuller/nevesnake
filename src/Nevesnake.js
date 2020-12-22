@@ -2,18 +2,17 @@ import Direction from './Direction'
 import Snake from './Snake'
 import Food from './Food'
 
-import background from '../img/background.png'
-import lessNevesAudio from '../audio/less-neves.mp3'
-import moreNevesAudio from '../audio/more-neves.mp3'
-import gameOverAudio from '../audio/game-over.mp3'
-import fadeOutAudio from '../audio/fade-out.mp3'
-import rightAudio from '../audio/go-right.mp3'
-import leftAudio from '../audio/go-left.mp3'
-import downAudio from '../audio/go-down.mp3'
-import upAudio from '../audio/go-up.mp3'
+import background from './assets/images/background.png'
+import lessNevesAudio from './assets/audio/less-neves.mp3'
+import moreNevesAudio from './assets/audio/more-neves.mp3'
+import gameOverAudio from './assets/audio/game-over.mp3'
+import fadeOutAudio from './assets/audio/fade-out.mp3'
+import rightAudio from './assets/audio/go-right.mp3'
+import leftAudio from './assets/audio/go-left.mp3'
+import downAudio from './assets/audio/go-down.mp3'
+import upAudio from './assets/audio/go-up.mp3'
 
-export default class Nevesnake {
-
+class Nevesnake {
   constructor(canvasSelector, speed) {
     this._context = document.querySelector(canvasSelector).getContext('2d')
     this._speed = speed
@@ -148,3 +147,5 @@ export default class Nevesnake {
     }
   }
 }
+
+export default Nevesnake
